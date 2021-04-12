@@ -8,6 +8,7 @@ import com.opentext.pages.actions.CMLoginPage;
 public class TestLoginAsAdmin {
 	public static String username = "admin";
 	public static String password = "admin";
+	//Author schintha
 	@Test
 	public void testLoginAsAdmin() {
 		Page.initConfiguration();
