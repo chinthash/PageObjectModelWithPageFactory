@@ -5,6 +5,8 @@
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
 		<listener
 			class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener
+			class-name="com.opentext.errorcollectors.TestListenerAdapter" />
 		<listener class-name="com.opentext.listeners.CustomListeners" />
 	</listeners>
 	<test name="LoginTest">
