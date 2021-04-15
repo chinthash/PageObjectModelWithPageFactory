@@ -2,6 +2,8 @@ package com.opentext.testcases;
 
 import java.util.Hashtable;
 
+import org.testng.SkipException;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.opentext.base.Page;
@@ -16,12 +18,23 @@ public class TestCreateUsers {
 
 	@Test(dataProviderClass = Utilities.class, dataProvider = "dp")
 	public void testCreateUsers(Hashtable<String, String> data) throws InterruptedException {
+		if (data.get("runmode").equalsIgnoreCase("N")) {
+			throw new SkipException("Skipping testcase as runmode is No");
+		}
 		Page.initConfiguration();
 		CMLoginPage login = new CMLoginPage();
 		CMAdminHomePage homepage = login.logInAsAdmin(adminusername, adminpassword);
 		CMAdminUsersPage userpage = homepage.clickAddUserIcon();
 		userpage.createUser(data);
-		Page.quitBrowser();
+
+	}
+
+	@AfterMethod
+	public void cleanup() {
+
+		if (Page.driver != null) {
+			Page.quitBrowser();
+		}
 	}
 
 }

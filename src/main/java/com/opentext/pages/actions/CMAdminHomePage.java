@@ -17,17 +17,17 @@ public class CMAdminHomePage {
 	}
 
 	public CMAdminUsersPage clickAddUserIcon() {
-		adminhomepage.addusericon.click();
+		Page.click(adminhomepage.addusericon);
 		return new CMAdminUsersPage();
 	}
 
 	public void gotoUsers() {
-		adminhomepage.users.click();
+		Page.click(adminhomepage.users);
 
 	}
 
 	public void gotoSettings() {
-		adminhomepage.settings.click();
+		Page.click(adminhomepage.settings);
 	}
 
 }

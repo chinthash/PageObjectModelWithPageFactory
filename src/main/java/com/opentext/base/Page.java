@@ -5,7 +5,9 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,6 +18,7 @@ import com.opentext.utilities.ExcelReader;
 import com.opentext.utilities.ExtentManager;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -55,7 +58,20 @@ public class Page {
 		driver.get(Constants.testsiteurl);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Constants.implicitwait, TimeUnit.SECONDS);
-		
+
+	}
+
+	public static void click(WebElement element) {
+		element.click();
+		log.debug("Clicking on locator " + element);
+		test.log(LogStatus.INFO, "Clicking on " + element);
+
+	}
+
+	public static void type(WebElement element, String value) {
+		element.sendKeys(value);
+		log.debug("Typing  in an element " + element + " and Entered value " + value);
+		test.log(LogStatus.INFO, "typing in " + element + " and Entered value " + value);
 	}
 
 	public static void quitBrowser() {
