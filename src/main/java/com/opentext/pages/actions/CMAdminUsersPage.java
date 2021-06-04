@@ -17,13 +17,13 @@ public class CMAdminUsersPage extends Page {
 		PageFactory.initElements(ajax, userspage);
 	}
 
-	public Boolean verifyUserPresence(String username) {
-		for (int rowcount = 2; rowcount <= userspage.rows.size(); rowcount++) {
-
-		}
-		return true;
-
-	}
+//	public Boolean verifyUserPresence(String username) {
+//		for (int rowcount = 2; rowcount <= userspage.rows.size(); rowcount++) {
+//
+//		}
+//		return true;
+//
+//	}
 
 	public void createUser(Hashtable<String, String> data) throws InterruptedException {
 		type(userspage.username, data.get("username"));
