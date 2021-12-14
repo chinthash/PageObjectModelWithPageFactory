@@ -13,6 +13,7 @@ import com.opentext.pages.actions.CMLoginPage;
 import com.opentext.utilities.Utilities;
 
 public class TestCreateUsers {
+
 	public static String adminusername = "admin";
 	public static String adminpassword = "admin";
 
